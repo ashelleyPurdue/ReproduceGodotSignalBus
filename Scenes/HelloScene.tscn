@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://nbxq7ncs3u7r"]
+[gd_scene load_steps=3 format=3 uid="uid://nbxq7ncs3u7r"]
 
-[ext_resource type="Script" path="res://Scripts/SayMessageScene.cs" id="1_ixbep"]
+[ext_resource type="PackedScene" uid="uid://duswpbdu7xvcq" path="res://Scenes/Objects/MessageSayerCSharp.tscn" id="1_del5j"]
+[ext_resource type="PackedScene" uid="uid://bwjb2p44b3w4j" path="res://Scenes/Objects/MessageSayerGDScript.tscn" id="2_n0kts"]
 
 [node name="HelloScene" type="Control"]
 layout_mode = 3
@@ -9,30 +10,21 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_ixbep")
+
+[node name="MessageSayerCSharp" parent="." instance=ExtResource("1_del5j")]
+layout_mode = 1
+anchors_preset = 9
+anchor_right = 0.0
+offset_right = 116.0
+grow_horizontal = 1
 Message = "Hello"
 TargetScene = "res://Scenes/GoodbyeScene.tscn"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="MessageSayerGDScript" parent="." instance=ExtResource("2_n0kts")]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="SayMessageButton" type="Button" parent="VBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Say Hello"
-
-[node name="ChangeSceneButton" type="Button" parent="VBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Change Scene"
+anchors_preset = 11
+anchor_left = 1.0
+offset_left = -116.0
+grow_horizontal = 0
+message = "Hello"
+targetScene = "res://Scenes/GoodbyeScene.tscn"

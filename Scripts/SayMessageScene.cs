@@ -12,8 +12,9 @@ public partial class SayMessageScene : Control
     {
         _sayMessageButton.Pressed += SignalBusSingleton.Instance.EmitSayMessagePressed;
         _changeSceneButton.Pressed += ChangeScene;
-
         SignalBusSingleton.Instance.SayMessagePressed += SayMessage;
+
+        _sayMessageButton.Text = $"Say {Message}";
     }
 
     public void ChangeScene()
