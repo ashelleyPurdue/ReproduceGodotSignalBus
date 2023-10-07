@@ -1,17 +1,12 @@
-extends VBoxContainer
+extends Button
 
 @export var message: String
-@export_file var targetScene: String
 
 func _ready():
-    %SayMessageButton.connect('pressed', say_message)
-    %ChangeSceneButton.connect('pressed', change_scene)
-    SignalBusSingletonGdScript.connect('say_message', say_message)
+    connect('pressed', Callable(SignalBusSingletonGdScript, 'emit_say_message'))
+    SignalBusSingletonGdScript.connect('say_message', Callable(self, 'say_message'))
     
-    %SayMessageButton.text = 'Say ' + message
-
-func change_scene():
-    get_tree().change_scene_to_file(targetScene)
+    text = 'Say ' + message + '(GDScript)'
 
 func say_message():
     print(message)

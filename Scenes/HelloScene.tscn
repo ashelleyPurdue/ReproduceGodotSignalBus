@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://nbxq7ncs3u7r"]
+[gd_scene load_steps=4 format=3 uid="uid://nbxq7ncs3u7r"]
 
-[ext_resource type="PackedScene" uid="uid://duswpbdu7xvcq" path="res://Scenes/Objects/MessageSayerCSharp.tscn" id="1_del5j"]
-[ext_resource type="PackedScene" uid="uid://bwjb2p44b3w4j" path="res://Scenes/Objects/MessageSayerGDScript.tscn" id="2_n0kts"]
+[ext_resource type="Script" path="res://Scripts/MessageSayerCSharp.cs" id="1_14t3t"]
+[ext_resource type="Script" path="res://Scripts/MessageSayerGDScript.gd" id="2_3twgx"]
+[ext_resource type="Script" path="res://Scripts/ChangeSceneButton.cs" id="2_30s0o"]
 
 [node name="HelloScene" type="Control"]
 layout_mode = 3
@@ -11,20 +12,34 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MessageSayerCSharp" parent="." instance=ExtResource("1_del5j")]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 9
-anchor_right = 0.0
-offset_right = 116.0
-grow_horizontal = 1
-Message = "Hello"
-TargetScene = "res://Scenes/GoodbyeScene.tscn"
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="MessageSayerGDScript" parent="." instance=ExtResource("2_n0kts")]
-layout_mode = 1
-anchors_preset = 11
-anchor_left = 1.0
-offset_left = -116.0
-grow_horizontal = 0
+[node name="CSharpButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Say ___(C#)"
+script = ExtResource("1_14t3t")
+Message = "Hello"
+
+[node name="GDScriptButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Say ___(GDScript)"
+script = ExtResource("2_3twgx")
 message = "Hello"
-targetScene = "res://Scenes/GoodbyeScene.tscn"
+
+[node name="ChangeSceneButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Change Scene"
+script = ExtResource("2_30s0o")
+TargetScene = "res://Scenes/GoodbyeScene.tscn"
