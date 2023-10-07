@@ -1,9 +1,9 @@
 using Godot;
 using System;
 
-public partial class SignalBusSingleton : Node
+public partial class SignalBusCSharp : Node
 {
-    public static SignalBusSingleton Instance {get; private set;}
+    public static SignalBusCSharp Instance {get; private set;}
 
     [Signal] public delegate void SayMessagePressedEventHandler();
 

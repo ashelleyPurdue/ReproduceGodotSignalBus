@@ -17,8 +17,8 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-SignalBusSingleton="*res://Scripts/SignalBusSingleton.cs"
-SignalBusSingletonGdScript="*res://Scripts/SignalBusSingletonGDScript.gd"
+SignalBusCSharp="*res://Scripts/SignalBusCSharp.cs"
+SignalBusGDScript="*res://Scripts/SignalBusGDScript.gd"
 
 [dotnet]
 

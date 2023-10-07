@@ -6,8 +6,8 @@ public partial class MessageSayerCSharp : Button
 
     public override void _Ready()
     {
-        Pressed += SignalBusSingleton.Instance.EmitSayMessagePressed;
-        SignalBusSingleton.Instance.SayMessagePressed += SayMessage;
+        Pressed += SignalBusCSharp.Instance.EmitSayMessagePressed;
+        SignalBusCSharp.Instance.SayMessagePressed += SayMessage;
 
         Text = $"Say {Message}(C#)";
     }
